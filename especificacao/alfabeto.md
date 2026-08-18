@@ -64,23 +64,6 @@ Onde:
 
 ---
 
-## B — Brancos
-
-| Caractere | Código |
-| :--- | :--- |
-| espaço | ` ` |
-| tabulação | `	` (`	`) |
-| nova linha | `
-` (`
-`) |
-| retorno de carro | `
-` (`
-`) |
-
-Sem significado sintático; servem apenas como separadores de tokens e são descartados pelo analisador léxico.
-
----
-
 ## Observações
 
 * Fora de literais de cadeia, somente caracteres de **Σ** são válidos; qualquer outro gera erro léxico.
