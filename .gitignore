@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+
+# Gerado por `python3 main.py`. Os números da linha de base ficam em
+# docs/medicoes.md, que é o registro durável.
+saida/

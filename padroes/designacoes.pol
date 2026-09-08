@@ -1,0 +1,46 @@
+# POLARIS — formas de designação e coordenada aceitas
+#
+# Uma linha por padrão:  nome = expressão
+# Linhas em branco e linhas começadas por '#' são ignoradas.
+#
+# Este arquivo é escrito por quem usa a linguagem, não por quem a implementa:
+# é aqui que se declara *quais* formas procurar num catálogo celeste. O
+# compilador lê este arquivo e produz as tabelas de transição do autômato que
+# as reconhece (ver docs/especificacao.md, "O que o sistema produz").
+#
+# A ordem importa: quando duas formas casam com o mesmo texto, vence a
+# declarada primeiro.
+
+# --- Catálogos por número -------------------------------------------------
+# Messier (M1 a M110), com ou sem espaço.
+messier   = M ?[0-9][0-9]?[0-9]?
+# New General Catalogue e Index Catalogue: prefixos curtos, corpo idêntico.
+ngc       = NGC [0-9][0-9]?[0-9]?[0-9]?
+ic        = IC [0-9][0-9]?[0-9]?[0-9]?
+# Henry Draper, Hipparcos e Harvard Revised: os três começam por 'H'.
+hd        = HD [0-9]+
+hip       = HIP [0-9]+
+hr        = HR [0-9]+
+# Tycho-2: três campos numéricos separados por traço.
+tycho     = TYC [0-9]+-[0-9]+-[0-9]
+
+# --- Designações por constelação -----------------------------------------
+# Bayer: letra grega abreviada em três letras + constelação (alf Ori).
+bayer     = [a-z][a-z][a-z] [A-Z][A-Za-z][A-Za-z]
+# Flamsteed: número + constelação (61 Cyg).
+flamsteed = [0-9]+ [A-Z][A-Za-z][A-Za-z]
+
+# --- Levantamentos modernos ----------------------------------------------
+# Gaia DR1/DR2/DR3 + source_id.
+gaia      = Gaia DR[0-9] [0-9]+
+# 2MASS e SDSS: prefixos diferentes, mesmo corpo J<coordenada>.
+twomass   = 2MASS J[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9](\+|-)[0-9][0-9][0-9][0-9][0-9][0-9][0-9]
+sdss      = SDSS J[0-9][0-9][0-9][0-9][0-9][0-9].[0-9][0-9](\+|-)[0-9][0-9][0-9][0-9][0-9][0-9].[0-9]
+
+# --- Coordenadas ----------------------------------------------------------
+# Sexagesimal separada por espaço: 05 35 17.3 -05 23 28
+sexagesimal = [0-9][0-9] [0-9][0-9] [0-9][0-9].[0-9]+ (\+|-)[0-9][0-9] [0-9][0-9] [0-9][0-9]
+# Sexagesimal com marcadores: 05h35m17.3s +22d00m52s
+hmsdms      = [0-9][0-9]h[0-9][0-9]m[0-9][0-9].[0-9]+s (\+|-)[0-9][0-9]d[0-9][0-9]m[0-9][0-9]s
+# Graus decimais: 83.822 -5.391
+decimal     = (\+|-)?[0-9]+.[0-9]+ (\+|-)?[0-9]+.[0-9]+

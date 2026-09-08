@@ -1,0 +1,7 @@
+# Trecho de catálogo, escrito por outra pessoa, no formato dela.
+Nebulosa de Orion    M42     NGC 1976    05 35 17.3 -05 23 28
+Betelgeuse           alf Ori    HD 39801    HIP 27989    83.822 -5.391
+Cisne 61             61 Cyg     HD 201091   TYC 1234-5678-1
+Anã vermelha         2MASS J05551028+0724255      05h35m17.3s +22d00m52s
+Quasar               SDSS J000000.00+000000.0     Gaia DR3 4116249658590184064
+Sem designação       objeto ainda não catalogado
