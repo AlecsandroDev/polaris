@@ -45,7 +45,7 @@ página. Uma classe com N símbolos gera N folhas e N−1 nós `alt`: **2N−1**
 | palavra fixa | `STAR` | `STAR` | já é núcleo | `concat(concat(concat(S, T), A), R)` | **7** |
 | sinal | `<=` | `(<\|>)=?` | `(<\|>)(=\|ε)` | `concat(alt(<, >), alt(=, ε))` | **7** |
 | número | `5778` | `[0-9]+` | `DIG DIG*` | `concat(DIG, fecho(DIG))` | **40** |
-| string | `"PERTO"` | `"[A-Za-z0-9 .]*"` | `" TXT* "` | `concat(concat(", fecho(TXT)), ")` | **132** |
+| string | `"PERTO"` | `"[A-Za-z0-9 .]*"` | `" TXT* "` | `concat(concat('"', fecho(TXT)), '"')` | **132** |
 | nome | `orbita_sol_terra` | `[A-Za-z_][A-Za-z0-9_]*` | `INI COR*` | `concat(INI, fecho(COR))` | **232** |
 
 **Contas.** Cada `concat` e cada `fecho` soma 1 aos nós dos filhos.
