@@ -79,6 +79,11 @@ O AFD isolado de `bayer` tem 210 estados, o maior dos quinze, porque
 `[A-Za-z]` vira 52 alternativas e o padrão usa duas. É o candidato mais visível
 a encolher na minimização.
 
+## 2026-09-28
+
+- Geração e refinamento da documentação técnica do projeto.
+- Utilização do Notebook LM como ferramenta de apoio ao estudo para aprofundamento na arquitetura do sistema.
+
 ## Próximos passos
 
 1. Minimizar o AFD (Hopcroft ou Moore) e medir contra `docs/medicoes.md`,
