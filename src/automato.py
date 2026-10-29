@@ -51,6 +51,36 @@ class AFN:
             destino.update(self.transicoes[estado].get(simbolo, ()))
         return destino
 
+    def simular(self, texto):
+        """Executa o AFN sem determinizar, preservando os estados simultâneos.
+
+        Devolve (nome_do_padrão_ou_None, passos). Cada passo é um par
+        (símbolo_lido, estados_ativos); o primeiro usa None para indicar
+        o fecho-ε inicial, antes de consumir qualquer caractere.
+        """
+        estados = self.fecho({self.inicio})
+        passos = [(None, estados)]
+
+        for simbolo in texto:
+            estados = self.fecho(self.mover(estados, simbolo))
+            passos.append((simbolo, estados))
+            if not estados:
+                return None, passos
+
+        finais = [estado for estado in estados if estado in self.rotulos]
+        if not finais:
+            return None, passos
+
+        # Mesma prioridade usada na determinização: primeiro padrão declarado.
+        prioridade = getattr(self, "prioridade", {})
+        vencedor = min(finais, key=lambda estado: prioridade.get(estado, 0))
+        return self.rotulos[vencedor], passos
+
+    def reconhece(self, texto):
+        """Nome do padrão se o AFN aceitar o texto inteiro, senão None."""
+        nome, _ = self.simular(texto)
+        return nome
+
 
 class _Construtor:
     def __init__(self):
